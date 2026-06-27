@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import asyncio
 import json
 import argparse
@@ -12,7 +13,6 @@ from dorkbrain import DorkBrain
 from dorkengine import DorkEngine
 from brain import ActionBrain
 
-# ---------- Recon helpers ----------
 def run_subfinder(domain):
     if not shutil.which("subfinder"):
         return []
@@ -34,6 +34,13 @@ def run_httpx(hosts):
                 pass
     live = [r['url'] for r in results if 'url' in r]
     return live, results
+
+def probe_url_simple(url):
+    try:
+        subprocess.check_output(["curl", "-sI", "-o", "/dev/null", "-w", "%{http_code}", url, "--max-time", "10"], text=True)
+        return True
+    except:
+        return False
 
 def run_nikto(url):
     if not shutil.which("nikto"):
@@ -104,7 +111,6 @@ def get_ssl(url):
     except:
         return ""
 
-
 async def run_dorking(domain, use_ai=False, ai_count=20):
     with open("data/dorks_base.json") as f:
         dorks_dict = json.load(f)
@@ -131,7 +137,6 @@ async def run_dorking(domain, use_ai=False, ai_count=20):
                 filtered.add(url)
     return list(filtered)
 
-
 def build_snapshot(url, host, tech, nmap_ports, waf, ssl):
     snap = f"url {url}"
     if tech:
@@ -147,16 +152,14 @@ def build_snapshot(url, host, tech, nmap_ports, waf, ssl):
         snap += " ssl scan done"
     return snap
 
-
 async def main():
-    parser = argparse.ArgumentParser(description="HackMind – Flexible Autonomous Recon & Hunt")
+    parser = argparse.ArgumentParser(description="HackMind – Autonomous Recon & Hunt")
     parser.add_argument("--domain", required=True)
-    parser.add_argument("--mode", choices=["recon-only","scan-only","full","auto"], default="full",
-                        help="Operation mode: recon-only, scan-only, full (recon+dork+vuln), auto (AI decides)")
-    parser.add_argument("--use-ai", action="store_true", help="Use AI for dork generation and action suggestions")
-    parser.add_argument("--ai-count", type=int, default=30, help="Number of AI-generated dorks")
+    parser.add_argument("--mode", choices=["recon-only","scan-only","full","auto"], default="full")
+    parser.add_argument("--use-ai", action="store_true")
+    parser.add_argument("--ai-count", type=int, default=30)
     parser.add_argument("--output", default="hackmind_results.json")
-    parser.add_argument("--dry-run", action="store_true", help="Only show AI suggestions, don't execute")
+    parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--training-file", default="data/training_data.json")
     args = parser.parse_args()
 
@@ -171,14 +174,24 @@ async def main():
         "ai_decisions": []
     }
 
-    
     print("[*] Starting recon...")
     subs = run_subfinder(domain)
     report["subdomains"] = subs
     targets = list(set(subs + [domain]))
-    live_urls, live_details = run_httpx(targets)
+    live_urls, _ = run_httpx(targets)
+
+    if not live_urls:
+        print("[!] httpx gave no live hosts, trying curl probe...")
+        for t in targets:
+            for proto in ['https://', 'http://']:
+                u = proto + t
+                if probe_url_simple(u):
+                    live_urls.append(u)
+                    break
+        live_urls = list(set(live_urls))
+
     report["live_hosts"] = [{"url": u} for u in live_urls]
-    live_urls = live_urls[:10]  
+    live_urls = live_urls[:10]
 
     if args.mode == "recon-only":
         for url in live_urls:
@@ -200,26 +213,21 @@ async def main():
         print(f"[+] Recon saved to {args.output}")
         return
 
-   
     ab = ActionBrain(args.training_file) if args.use_ai else None
 
-   
     if args.mode == "scan-only":
-       
         prev = Path(args.output)
         if prev.exists():
             with open(prev) as f:
                 old = json.load(f)
             live_urls = [h['url'] for h in old.get('live_hosts', [])] or live_urls
-      
-   
+
     if args.mode == "full":
         print("[*] Dorking...")
         dork_urls = await run_dorking(domain, use_ai=args.use_ai, ai_count=args.ai_count)
         report["dork_urls"] = dork_urls
         live_urls = list(set(live_urls + dork_urls))
 
-    
     for url in live_urls:
         host = url.split("//")[-1].split("/")[0]
         print(f"\n[===] {url}")
@@ -241,20 +249,15 @@ async def main():
 
         snapshot = build_snapshot(url, host, tech, ports, waf, ssl)
 
-        
         if ab:
             suggestions = ab.suggest(snapshot, max_results=3)
             if args.mode == "auto":
-               
                 top_action = None
                 for s in suggestions:
                     action = s.get('action','')
                     if any(cmd in action for cmd in ["nuclei","wpscan","searchsploit -m"]):
                         top_action = s
                         break
-                if not top_action and args.use_ai:
-               
-                    pass
                 if top_action:
                     print(f"[AI] Auto-selected action: {top_action.get('condition','')} -> {top_action.get('action','')}")
                     report["ai_decisions"].append({"url":url, "action":top_action})
@@ -265,7 +268,6 @@ async def main():
                         except:
                             pass
             else:
-               
                 print("[AI] Top suggestions:")
                 for s in suggestions:
                     print(f"  {s.get('condition','')} -> {s.get('action','')} (CVE: {s.get('cve','')})")
@@ -277,7 +279,6 @@ async def main():
                         except:
                             pass
 
-       
         if args.mode in ["full","scan-only"]:
             print("[*] Running standard scans...")
             nikto_findings = run_nikto(url)
