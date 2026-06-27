@@ -76,6 +76,17 @@ async def main():
 
     results = await engine.run(all_dorks, engine=args.engine, concurrency=args.concurrency)
 
+   
+    if args.domain:
+        domain_clean = args.domain.strip().lower()
+        cleaned_results = []
+        for url_list in results:
+           
+            cleaned_urls = [url for url in url_list if domain_clean in url.lower()]
+            cleaned_results.append(cleaned_urls)
+        results = cleaned_results
+  
+
     interesting_records = []
     training_records = []
     for dork, urls in zip(all_dorks, results):
