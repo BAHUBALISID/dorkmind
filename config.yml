@@ -1,0 +1,41 @@
+search:
+  engine: "duckduckgo"
+  concurrency: 5
+  delay:
+    min: 2.0
+    max: 5.0
+  retries: 3
+
+proxy:
+  list_file: "proxies.txt"
+  use_proxies: true
+
+dorks:
+  base_file: "data/dorks_base.json"
+
+ai:
+  use_ai: false
+  generate_count: 20
+  model_dir: "data/model"
+
+output:
+  results_file: "results.json"
+  training_file: "data/training_data.json"
+  interesting_keywords:
+    - backup
+    - config
+    - admin
+    - .env
+    - sql
+    - password
+    - index of
+    - secret
+    - private
+    - credential
+    - dump
+    - db
+
+advanced:
+  random_agent: true
+  max_dorks: 0
+  log_level: "info"
