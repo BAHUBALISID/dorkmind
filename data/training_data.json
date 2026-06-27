@@ -1,0 +1,618 @@
+[
+  {
+    "dork": "intitle:\"index of\" \"backup.zip\"",
+    "url": "https://target1.com/backup/backup.zip"
+  },
+  {
+    "dork": "intitle:\"index of\" \"wp-config.php\"",
+    "url": "https://blog.target1.com/wp-config.php"
+  },
+  {
+    "dork": "intitle:\"index of\" \".env\"",
+    "url": "https://dev.target1.com/.env"
+  },
+  {
+    "dork": "ext:sql \"INSERT INTO\" \"password\"",
+    "url": "https://db.target1.com/dump.sql"
+  },
+  {
+    "dork": "intitle:\"index of\" \"id_rsa\"",
+    "url": "https://git.target1.com/.ssh/id_rsa"
+  },
+  {
+    "dork": "intitle:\"index of\" \".htpasswd\"",
+    "url": "https://secure.target1.com/.htpasswd"
+  },
+  {
+    "dork": "intitle:\"index of\" \"credentials.txt\"",
+    "url": "https://files.target1.com/credentials.txt"
+  },
+  {
+    "dork": "intitle:\"index of\" \"dump.sql\"",
+    "url": "https://backup.target1.com/dump.sql"
+  },
+  {
+    "dork": "intitle:\"index of\" \"mysql.sql\"",
+    "url": "https://db-backup.target1.com/mysql.sql"
+  },
+  {
+    "dork": "intitle:\"index of\" \"shadow\"",
+    "url": "https://old.target1.com/etc/shadow"
+  },
+  {
+    "dork": "intitle:\"index of\" \"passwd\"",
+    "url": "https://old.target1.com/etc/passwd"
+  },
+  {
+    "dork": "intitle:\"index of\" \"private.key\"",
+    "url": "https://api.target1.com/certs/private.key"
+  },
+  {
+    "dork": "intitle:\"index of\" \"fullchain.pem\"",
+    "url": "https://api.target1.com/certs/fullchain.pem"
+  },
+  {
+    "dork": "intitle:\"index of\" \"config.php.bak\"",
+    "url": "https://www.target2.com/config.php.bak"
+  },
+  {
+    "dork": "intitle:\"index of\" \"settings.py\"",
+    "url": "https://app.target2.com/settings.py"
+  },
+  {
+    "dork": "ext:log \"username\" \"password\"",
+    "url": "https://logs.target2.com/debug.log"
+  },
+  {
+    "dork": "filetype:sql \"phpMyAdmin SQL Dump\" \"password\"",
+    "url": "https://dump.target2.com/phpmyadmin.sql"
+  },
+  {
+    "dork": "filetype:sql intext:@gmail.com intext:password",
+    "url": "https://leak.target2.com/users.sql"
+  },
+  {
+    "dork": "intitle:\"index of /\" \"Parent Directory\"",
+    "url": "https://cdn.target3.com/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"admin\"",
+    "url": "https://intranet.target3.com/admin/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"uploads\"",
+    "url": "https://uploads.target3.com/"
+  },
+  {
+    "dork": "intitle:\"index of\" \".git\"",
+    "url": "https://repo.target3.com/.git/"
+  },
+  {
+    "dork": "inurl:admin/login",
+    "url": "https://cms.target4.com/admin/login"
+  },
+  {
+    "dork": "inurl:phpmyadmin",
+    "url": "https://db.target4.com/phpmyadmin/"
+  },
+  {
+    "dork": "inurl:wp-login.php",
+    "url": "https://blog.target4.com/wp-login.php"
+  },
+  {
+    "dork": "intitle:\"Web Server Management\" \"login\"",
+    "url": "https://mgmt.target4.com/login"
+  },
+  {
+    "dork": "intitle:\"phpinfo\"",
+    "url": "https://info.target4.com/phpinfo.php"
+  },
+  {
+    "dork": "intitle:\"index of\" \"backup\" site:gov",
+    "url": "https://archive.govsite.gov/backup/"
+  },
+  {
+    "dork": "site:edu \"password\" filetype:xls",
+    "url": "https://uni.edu/students.xls"
+  },
+  {
+    "dork": "site:s3.amazonaws.com \"index of\"",
+    "url": "https://bucket-name.s3.amazonaws.com/"
+  },
+  {
+    "dork": "inurl:blob.core.windows.net",
+    "url": "https://storageaccount.blob.core.windows.net/container/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"private\"",
+    "url": "https://internal.target5.com/private/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"secret\"",
+    "url": "https://dev.target5.com/secret/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"confidential\"",
+    "url": "https://files.target5.com/confidential/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"tmp\"",
+    "url": "https://cache.target5.com/tmp/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"temp\"",
+    "url": "https://staging.target5.com/temp/"
+  },
+  {
+    "dork": "intitle:\"index of\" \".svn\"",
+    "url": "https://code.target6.com/.svn/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"src\"",
+    "url": "https://src.target6.com/"
+  },
+  {
+    "dork": "ext:php intext:\"$db_pass\"",
+    "url": "https://app.target6.com/config.php"
+  },
+  {
+    "dork": "ext:env \"DB_PASSWORD\"",
+    "url": "https://api.target6.com/.env"
+  },
+  {
+    "dork": "ext:env \"SECRET_KEY\"",
+    "url": "https://api.target6.com/.env.production"
+  },
+  {
+    "dork": "ext:json \"password\"",
+    "url": "https://config.target7.com/db.json"
+  },
+  {
+    "dork": "ext:yml \"password\"",
+    "url": "https://config.target7.com/database.yml"
+  },
+  {
+    "dork": "intitle:\"index of\" \"backup.tar.gz\"",
+    "url": "https://archive.target7.com/backup.tar.gz"
+  },
+  {
+    "dork": "intitle:\"index of\" \"backup.sql\"",
+    "url": "https://archive.target7.com/backup.sql"
+  },
+  {
+    "dork": "intitle:\"index of\" \"web.config\"",
+    "url": "https://app.target8.com/web.config"
+  },
+  {
+    "dork": "inurl:/cgi-bin/guestimage.html",
+    "url": "https://camera.target9.com/cgi-bin/guestimage.html"
+  },
+  {
+    "dork": "intitle:\"Live View / - AXIS\"",
+    "url": "https://cam.target9.com/view/viewer_index.shtml"
+  },
+  {
+    "dork": "intitle:\"RouterOS\" \"configuration\"",
+    "url": "https://router.target10.com/webfig/"
+  },
+  {
+    "dork": "intitle:\"pfSense\" \"Login\"",
+    "url": "https://firewall.target10.com/"
+  },
+  {
+    "dork": "intitle:\"MikroTik RouterOS\" \"login\"",
+    "url": "https://192.168.1.1/webfig/"
+  },
+  {
+    "dork": "inurl:/dana-na/auth/url_default/",
+    "url": "https://vpn.target11.com/dana-na/auth/url_default/welcome.cgi"
+  },
+  {
+    "dork": "intitle:\"VMware Horizon\" \"Login\"",
+    "url": "https://vdi.target11.com/portal/webclient/index.html"
+  },
+  {
+    "dork": "intitle:\"Apache Tomcat\" \"Administration\"",
+    "url": "https://tomcat.target12.com/manager/html"
+  },
+  {
+    "dork": "intitle:\"Jenkins\" \"login\"",
+    "url": "https://jenkins.target12.com/login"
+  },
+  {
+    "dork": "intitle:\"SonarQube\" \"Log in\"",
+    "url": "https://sonar.target12.com/sessions/new"
+  },
+  {
+    "dork": "intitle:\"Grafana\" \"Log in\"",
+    "url": "https://monitor.target13.com/login"
+  },
+  {
+    "dork": "intitle:\"Kibana\" \"Login\"",
+    "url": "https://logs.target13.com/login"
+  },
+  {
+    "dork": "inurl:/admin/login.jsp",
+    "url": "https://cms.target14.com/admin/login.jsp"
+  },
+  {
+    "dork": "intitle:\"Cisco CallManager\" inurl:ccmadmin",
+    "url": "https://phone.target15.com/ccmadmin/"
+  },
+  {
+    "dork": "intitle:\"FreePBX\" \"Administration\"",
+    "url": "https://pbx.target15.com/admin/config.php"
+  },
+  {
+    "dork": "intitle:\"index of\" \"warez\"",
+    "url": "https://files.target16.com/warez/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"crack\"",
+    "url": "https://files.target16.com/crack/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"nulled\"",
+    "url": "https://dl.target16.com/null/"
+  },
+  {
+    "dork": "inurl:/wp-content/uploads/ \"index of\"",
+    "url": "https://blog.target17.com/wp-content/uploads/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"wp-content/backups\"",
+    "url": "https://blog.target17.com/wp-content/backups/"
+  },
+  {
+    "dork": "inurl:wp-json/wp/v2/users",
+    "url": "https://blog.target17.com/wp-json/wp/v2/users"
+  },
+  {
+    "dork": "inurl:wp-config.php.bak",
+    "url": "https://www.target18.com/wp-config.php.bak"
+  },
+  {
+    "dork": "inurl:wp-config.php~",
+    "url": "https://www.target18.com/wp-config.php~"
+  },
+  {
+    "dork": "intitle:\"index of\" \"dump.tar.gz\"",
+    "url": "https://db.target19.com/dump.tar.gz"
+  },
+  {
+    "dork": "intitle:\"index of\" \"database_backup\"",
+    "url": "https://db.target19.com/database_backup/"
+  },
+  {
+    "dork": "filetype:xls \"salary\"",
+    "url": "https://hr.target20.com/salary.xls"
+  },
+  {
+    "dork": "filetype:xls \"payroll\"",
+    "url": "https://hr.target20.com/payroll_2023.xls"
+  },
+  {
+    "dork": "filetype:csv \"name\" \"address\" \"phone\" \"email\"",
+    "url": "https://marketing.target20.com/leads.csv"
+  },
+  {
+    "dork": "intitle:\"index of\" \"invoice\"",
+    "url": "https://finance.target20.com/invoices/"
+  },
+  {
+    "dork": "ext:pdf \"confidential\" site:gov",
+    "url": "https://agency.gov/docs/classified.pdf"
+  },
+  {
+    "dork": "ext:doc \"internal use only\" site:gov",
+    "url": "https://dept.gov/internal_use_only.doc"
+  },
+  {
+    "dork": "intitle:\"index of\" \"thesis\" site:edu",
+    "url": "https://library.university.edu/thesis/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"research\" site:edu",
+    "url": "https://lab.university.edu/research/data/"
+  },
+  {
+    "dork": "site:storage.googleapis.com \"backup\"",
+    "url": "https://storage.googleapis.com/bucket-backup/backup.tar.gz"
+  },
+  {
+    "dork": "site:storage.googleapis.com \"secret\"",
+    "url": "https://storage.googleapis.com/bucket-secret/keys.txt"
+  },
+  {
+    "dork": "intitle:\"index of\" \"s3.eu-west\"",
+    "url": "https://s3.eu-west-1.amazonaws.com/company-backup/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"digitaloceanspaces.com\"",
+    "url": "https://nyc3.digitaloceanspaces.com/backup-bucket/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"backup_config\"",
+    "url": "https://devops.target21.com/backup_config/"
+  },
+  {
+    "dork": "ext:cfg \"sip.conf\" \"secret\"",
+    "url": "https://phone.target22.com/sip.conf"
+  },
+  {
+    "dork": "intitle:\"Grandstream Device Configuration\" \"password\"",
+    "url": "https://phone.target22.com/cfg_GXP2130.txt"
+  },
+  {
+    "dork": "intitle:\"Asterisk\" \"Management Portal\"",
+    "url": "https://pbx.target23.com/asterisk/static/config/cfgbasic.html"
+  },
+  {
+    "dork": "inurl:8080/login",
+    "url": "https://app.target24.com:8080/login"
+  },
+  {
+    "dork": "inurl:8443/login",
+    "url": "https://secure.target24.com:8443/login"
+  },
+  {
+    "dork": "inurl:3000/login",
+    "url": "https://grafana.target24.com:3000/login"
+  },
+  {
+    "dork": "intitle:\"Synology\" \"login\"",
+    "url": "https://nas.target25.com:5001/webman/index.cgi"
+  },
+  {
+    "dork": "intitle:\"QNAP\" \"login\"",
+    "url": "https://nas.target25.com:8080/cgi-bin/"
+  },
+  {
+    "dork": "intitle:\"TrueNAS\" \"login\"",
+    "url": "https://storage.target25.com/ui/sessions/signin"
+  },
+  {
+    "dork": "intitle:\"Proxmox\" \"Login\"",
+    "url": "https://pve.target26.com:8006/"
+  },
+  {
+    "dork": "intitle:\"VMware ESXi\" \"login\"",
+    "url": "https://esxi.target26.com/ui/"
+  },
+  {
+    "dork": "intitle:\"Citrix XenApp\" \"Log On\"",
+    "url": "https://remote.target27.com/Citrix/StoreWeb/"
+  },
+  {
+    "dork": "intitle:\"Elasticsearch\" \"Log in\"",
+    "url": "https://search.target28.com:9200/_plugin/head/"
+  },
+  {
+    "dork": "intitle:\"RabbitMQ Management\" \"Login\"",
+    "url": "https://mq.target28.com:15672/"
+  },
+  {
+    "dork": "intitle:\"Portainer\" \"Login\"",
+    "url": "https://docker.target29.com:9443/"
+  },
+  {
+    "dork": "ext:ovpn \"auth-user-pass\"",
+    "url": "https://vpn.target30.com/client.ovpn"
+  },
+  {
+    "dork": "intitle:\"index of\" \"private.txt\"",
+    "url": "https://share.target31.com/private.txt"
+  },
+  {
+    "dork": "intitle:\"index of\" \"users.txt\"",
+    "url": "https://share.target31.com/users.txt"
+  },
+  {
+    "dork": "intitle:\"index of\" \"accounts.txt\"",
+    "url": "https://share.target31.com/accounts.txt"
+  },
+  {
+    "dork": "intitle:\"index of\" \"credentials\"",
+    "url": "https://share.target31.com/credentials/"
+  },
+  {
+    "dork": "ext:reg \"password\"",
+    "url": "https://settings.target32.com/export.reg"
+  },
+  {
+    "dork": "intitle:\"index of\" \"web.config.bak\"",
+    "url": "https://app.target33.com/web.config.bak"
+  },
+  {
+    "dork": "intitle:\"index of\" \"crossdomain.xml\"",
+    "url": "https://cdn.target33.com/crossdomain.xml"
+  },
+  {
+    "dork": "inurl:/video.cgi",
+    "url": "https://cam.target34.com/video.cgi"
+  },
+  {
+    "dork": "intitle:\"webcamXP\" \"powered by\"",
+    "url": "https://cam.target34.com:8080/"
+  },
+  {
+    "dork": "intitle:\"DVR\" inurl:WebLogin",
+    "url": "https://dvr.target34.com/WebLogin.htm"
+  },
+  {
+    "dork": "intitle:\"Hikvision\" inurl:doc/page/login.asp",
+    "url": "https://cctv.target35.com/doc/page/login.asp"
+  },
+  {
+    "dork": "intitle:\"Dahua\" \"Web Login\"",
+    "url": "https://cctv.target35.com/RPC2_Login"
+  },
+  {
+    "dork": "\"Warning: mysql_connect()\" \"on line\"",
+    "url": "https://old.target36.com/test.php"
+  },
+  {
+    "dork": "\"Fatal error: Call to undefined function\" intext:wp-",
+    "url": "https://blog.target36.com/wp-content/themes/broken/functions.php"
+  },
+  {
+    "dork": "\"SQL syntax\" \"MySQL server\"",
+    "url": "https://search.target37.com/results.php?q=test"
+  },
+  {
+    "dork": "\"Warning: include(\" inurl:*.php",
+    "url": "https://app.target37.com/include/config.php"
+  },
+  {
+    "dork": "\"Notice: Undefined variable: password\"",
+    "url": "https://dev.target38.com/login.php"
+  },
+  {
+    "dork": "\"Notice: Undefined variable: user\"",
+    "url": "https://dev.target38.com/login.php"
+  },
+  {
+    "dork": "\"Exception in thread\" \"java\"",
+    "url": "https://api.target39.com/error"
+  },
+  {
+    "dork": "\"Traceback (most recent call last):\" filetype:py",
+    "url": "https://api.target39.com/debug"
+  },
+  {
+    "dork": "\"Stack trace:\" intext:error",
+    "url": "https://api.target39.com/trace"
+  },
+  {
+    "dork": "\"Parse error\" \"syntax error\" inurl:\".php\"",
+    "url": "https://www.target40.com/parse.php"
+  },
+  {
+    "dork": "\"PHP Parse error\" \"unexpected\"",
+    "url": "https://www.target40.com/error_log"
+  },
+  {
+    "dork": "\"Error 500\" \"Internal Server Error\"",
+    "url": "https://shop.target41.com/checkout"
+  },
+  {
+    "dork": "\"Server Error in '/' Application\"",
+    "url": "https://app.target41.com/"
+  },
+  {
+    "dork": "\"Runtime Error\" intext:Microsoft",
+    "url": "https://app.target41.com/error.aspx"
+  },
+  {
+    "dork": "\"Whitelabel Error Page\" intext:\"This application has no explicit mapping\"",
+    "url": "https://service.target42.com/notfound"
+  },
+  {
+    "dork": "\"DEBUG = True\" filetype:py",
+    "url": "https://flask.target43.com/settings.py"
+  },
+  {
+    "dork": "\"Connection refused\" intext:error",
+    "url": "https://status.target44.com/"
+  },
+  {
+    "dork": "\"Permission denied\" intext:error",
+    "url": "https://logs.target44.com/error.log"
+  },
+  {
+    "dork": "intext:\"Warning: pg_connect()\"",
+    "url": "https://postgres.target45.com/connect.php"
+  },
+  {
+    "dork": "intext:\"Warning: mssql_connect()\"",
+    "url": "https://mssql.target45.com/connect.php"
+  },
+  {
+    "dork": "intext:\"Warning: oci_connect()\"",
+    "url": "https://oracle.target45.com/connect.php"
+  },
+  {
+    "dork": "intitle:\"index of\" \"ssl\"",
+    "url": "https://secure.target46.com/ssl/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"certs\"",
+    "url": "https://secure.target46.com/certs/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"vpn\"",
+    "url": "https://network.target47.com/vpn/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"firewall\"",
+    "url": "https://network.target47.com/firewall/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"logs\"",
+    "url": "https://server.target48.com/logs/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"error_log\"",
+    "url": "https://server.target48.com/error_log"
+  },
+  {
+    "dork": "intitle:\"index of\" \"access_log\"",
+    "url": "https://server.target48.com/access_log"
+  },
+  {
+    "dork": "intitle:\"index of\" \"debug\"",
+    "url": "https://dev.target49.com/debug/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"test\"",
+    "url": "https://dev.target49.com/test/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"staging\"",
+    "url": "https://staging.target50.com/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"production\"",
+    "url": "https://prod.target50.com/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"development\"",
+    "url": "https://dev.target51.com/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"backup_db\"",
+    "url": "https://db.target52.com/backup_db/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"db_backup\"",
+    "url": "https://db.target52.com/db_backup/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"data\"",
+    "url": "https://api.target53.com/data/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"export\"",
+    "url": "https://reports.target53.com/export/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"import\"",
+    "url": "https://reports.target53.com/import/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"assets\"",
+    "url": "https://cdn.target54.com/assets/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"static\"",
+    "url": "https://cdn.target54.com/static/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"public\"",
+    "url": "https://www.target55.com/public/"
+  },
+  {
+    "dork": "intitle:\"index of\" \"shared\"",
+    "url": "https://files.target55.com/shared/"
+  }
+]
