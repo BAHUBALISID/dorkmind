@@ -1,0 +1,15 @@
+import json
+import pickle
+from tensorflow.keras.preprocessing.text import Tokenizer
+
+with open("data/dorks_base.json", "r") as f:
+    dorks_dict = json.load(f)
+all_dorks = []
+for cat in dorks_dict.values():
+    all_dorks.extend(cat)
+
+tokenizer = Tokenizer(char_level=False, filters='', lower=True)
+tokenizer.fit_on_texts(all_dorks)
+
+with open("data/model/tokenizer.pkl", "wb") as f:
+    pickle.dump(tokenizer, f)
