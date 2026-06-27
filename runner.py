@@ -46,6 +46,7 @@ async def main():
     parser.add_argument("--output", default="results.json", help="Output file for interesting results")
     parser.add_argument("--keywords", nargs="+", default=["backup", "config", "admin", ".env", "sql", "password", "index of", "secret", "private", "credential", "dump", "db"])
     parser.add_argument("--training-output", default="data/training_data.json", help="File to append training records")
+    parser.add_argument("--domain", default=None, help="Target domain (e.g. example.com)")
     args = parser.parse_args()
 
     base_dorks = load_dorks(args.dorks_file)
@@ -58,6 +59,11 @@ async def main():
         print(f"[+] Added {len(ai_generated)} AI-generated dorks")
     elif args.use_ai:
         print("[-] AI model not found, skipping generation")
+
+    if args.domain:
+        domain_filter = args.domain.strip()
+        all_dorks = [f"site:{domain_filter} {d}" for d in all_dorks]
+        print(f"[+] Domain filter applied: site:{domain_filter}")
 
     proxies = load_proxies(args.proxies_file)
     if proxies:
